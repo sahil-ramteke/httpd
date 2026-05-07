@@ -1,18 +1,12 @@
 pipeline{
     agent any
     stages{
-        stage('install httpd'){
-            steps{
-                sh 'yum install httpd -y'
-                sh 'systemctl start httpd'
-                sh 'systemctl enable httpd'
-            }
+        stage('clone repo'){
+            sh 'rm -rf *'
+            git branch: 'main', url: 'https://github.com/sahil-ramteke/repository1'
         }
-        stage('make file'){
-            steps{
-                sh 'echo "This is index file" >> /var/www/html/index.html'
-                sh 'chmod -R 777 /var/www/html/'
-            }
+        stage('copy file'){
+            sh 'cp repository1/index.html /var/www/html/'
         }
     }
 }
