@@ -9,7 +9,7 @@ pipeline{
         }
         stage('copy file'){
             steps{
-                sh 'cp repository1/index.html /var/www/html/'
+                sh 'cp /root/.jenkins/workspace/job-1/index.html /var/www/html/'
             }
             }
         }
