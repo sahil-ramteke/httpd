@@ -4,7 +4,7 @@ pipeline{
         stage('clone repo'){
             steps{
                 sh 'rm -rf *'
-                git branch: 'main', url: 'https://github.com/sahil-ramteke/repository1'
+                git branch: 'main', url: 'https://github.com/sahil-ramteke/repository2'
             }
         }
         stage('copy file'){
